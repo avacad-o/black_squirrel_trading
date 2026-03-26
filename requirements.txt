@@ -1,0 +1,22 @@
+# Black Squirrel Trading — dependencies
+# Install: pip install -r requirements.txt
+
+# Shared
+psycopg2-binary>=2.9.0
+redis>=4.0.0
+
+# Tardigrade (add when implementing)
+# databento
+# tradovate SDK or requests
+
+# Stardust (add when implementing)
+# polygon-api-client
+# anthropic
+# requests / aiohttp for EDGAR, FMP, Reddit, Unusual Whales
+
+# Dashboard (private website)
+flask>=3.0.0
+gunicorn>=21.0.0
+
+# Tooling
+python-dotenv>=1.0.0

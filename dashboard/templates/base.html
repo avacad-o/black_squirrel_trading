@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Black Squirrel Trading{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="dashboard">
+  <header class="header">
+    <a href="{{ url_for('index') }}" class="logo">Black Squirrel</a>
+    <nav>
+      <a href="{{ url_for('tardigrade') }}">Tardigrade</a>
+      <a href="{{ url_for('stardust') }}">Stardust</a>
+      <a href="{{ url_for('logout') }}">Log out</a>
+    </nav>
+  </header>
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

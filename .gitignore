@@ -1,0 +1,30 @@
+# Env and secrets — use Doppler; never commit keys
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local and logs
+*.log
+.cache/
+.DS_Store
+
+# Grafana / Loki (local provisioning)
+# dashboard/*/provisioning if sensitive

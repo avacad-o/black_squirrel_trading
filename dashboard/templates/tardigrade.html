@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Tardigrade — Black Squirrel{% endblock %}
+{% block content %}
+  <h1>Tardigrade</h1>
+  <p class="clock">EST <strong>{{ now_est }}</strong></p>
+
+  <section class="panel">
+    <h2>Bracket</h2>
+    <p><strong>Current:</strong> {{ bracket_name }}</p>
+    <p><strong>New entry allowed:</strong> {{ "Yes" if can_enter else "No" }}</p>
+    {% if minutes_remaining is not none %}
+    <p><strong>Minutes remaining:</strong> {{ "%.1f"|format(minutes_remaining) }}</p>
+    {% endif %}
+    <ul class="bracket-list">
+      {% for name, start, end in brackets %}
+      <li>{{ name }} {{ start.strftime('%H:%M') }}–{{ end.strftime('%H:%M') }} EST</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>Risk</h2>
+    <p><strong>Streak action:</strong> {{ streak_action }}</p>
+    <p><strong>Daily target:</strong> ${{ "%.0f"|format(daily_target) }}</p>
+  </section>
+
+  <section class="panel">
+    <h2>Recent trades</h2>
+    {% if recent_trades %}
+    <table class="table">
+      <thead><tr><th>Time</th><th>Symbol</th><th>Dir</th><th>Entry</th><th>Exit</th><th>PnL</th></tr></thead>
+      <tbody>
+        {% for t in recent_trades %}
+        <tr>
+          <td>{{ t.timestamp }}</td>
+          <td>{{ t.instrument }}</td>
+          <td>{{ t.direction }}</td>
+          <td>{{ t.entry_price }}</td>
+          <td>{{ t.exit_price or "—" }}</td>
+          <td>{{ t.net_pnl or "—" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No trades yet. Connect Tradovate and run the engine.</p>
+    {% endif %}
+  </section>
+{% endblock %}

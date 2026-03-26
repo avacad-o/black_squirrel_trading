@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Black Squirrel{% endblock %}
+{% block content %}
+  <h1>Dashboard</h1>
+  <p>Two systems. No shared strategy.</p>
+  <div class="cards">
+    <a href="{{ url_for('tardigrade') }}" class="card">
+      <h2>Tardigrade</h2>
+      <p>Micro futures execution. Brackets, confluence, risk, trades.</p>
+    </a>
+    <a href="{{ url_for('stardust') }}" class="card">
+      <h2>Stardust</h2>
+      <p>Macro stock signals. Four quadrants, scores, alerts.</p>
+    </a>
+  </div>
+{% endblock %}

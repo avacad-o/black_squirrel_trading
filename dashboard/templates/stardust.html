@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Stardust — Black Squirrel{% endblock %}
+{% block content %}
+  <h1>Stardust</h1>
+  <p>Four quadrants. One stock per quadrant. Research only — no trading.</p>
+
+  <div class="quadrants">
+    {% for q in quadrants %}
+    <section class="quadrant-tile status-{{ q.status.value|lower|replace('_','-') }}">
+      <h2>{{ q.name }}</h2>
+      <p class="subtitle">{{ q.subtitle }}</p>
+      <p class="ticker">{{ q.ticker }}</p>
+      <p class="score">Score: <strong>{{ q.score }}</strong> / 100</p>
+      <p class="status">{{ q.status.value }}</p>
+    </section>
+    {% endfor %}
+  </div>
+
+  {% if signal_text %}
+  <section class="panel signal-output">
+    <h2>Latest signal</h2>
+    <pre>{{ signal_text }}</pre>
+  </section>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('refresh_stardust') }}" class="actions">
+    <button type="submit">Refresh data</button>
+  </form>
+{% endblock %}
