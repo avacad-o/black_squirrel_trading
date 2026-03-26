@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Black Squirrel Trading
 
 **Confidential | Not financial advice**
@@ -60,3 +61,6 @@ Secrets via Doppler. See `docs/TPS.md` § 3.5 for required env vars.
 ## License
 
 Confidential.
+=======
+# black_squirrel_trading
+>>>>>>> origin/dev
